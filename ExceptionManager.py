@@ -6,7 +6,7 @@ class ExceptionManager:
         )
 
     @staticmethod
-    def error400_msg_integer_input():
+    def error400_msg_number_input():
         return "400: Invalid input. Please enter a valid number."
 
     @staticmethod

@@ -1,3 +1,4 @@
+from ExceptionManager import ExceptionManager
 from RiceCooker import RiceCooker
 
 
@@ -22,4 +23,4 @@ def get_valid_number_input(prompt_msg, min_val=float("-inf"), max_val=float("inf
             else:
                 print("400: Input must be between", min_val, "and", max_val)
         except ValueError:
-            print("400: Invalid input. Please enter a valid number.")
+            print(ExceptionManager.error400_msg_number_input())
