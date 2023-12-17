@@ -1,0 +1,16 @@
+{
+  "name": "cc-d4-rice-cooker-ci-fenohasinalala",
+  "version": "1.0.0",
+  "description": "## Description",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "prompt-sync": "^4.2.0",
+    "readline-sync": "^1.4.10",
+    "uuid": "^9.0.1"
+  }
+}
