@@ -25,18 +25,18 @@ class RiceCookerView:
 
             if Validation.is_cooking(rice_cooker) and choice == 1:
                 continue
-
-            if choice == 1:
-                self.cook_food_menu(rice_cooker)
-            elif choice == 2:
-                self.service.steam_food()
-            elif choice == 3:
-                self.service.check_status(rice_cooker)
-            elif choice == 4:
-                self.service.shut_down()
-                return
-            else:
-                print(ExceptionManager.error400_msg_integer_input(min_val, max_val))
+            match choice:
+                case 1:
+                    self.cook_food_menu(rice_cooker)
+                case 2:
+                    self.service.steam_food()
+                case 3:
+                    self.service.check_status(rice_cooker)
+                case 4:
+                    self.service.shut_down()
+                    return
+                case _:
+                    print(ExceptionManager.error400_msg_integer_input(min_val, max_val))
 
     @staticmethod
     def menu_prompt_msg(min_val, max_val):
