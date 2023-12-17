@@ -24,8 +24,8 @@ public class RiceCookerView {
       displayMainMenu();
       int min = 1;
       int max = 4;
-      int choice = (int) Validation.getValidNumberInput(InputUtils.menuPromptMsg(min,max),min,max);
-      if (Validation.isCooking(riceCooker) && (choice == 1)){
+      int choice = (int) Validation.getValidNumberInput(InputUtils.menuPromptMsg(min, max), min, max);
+      if (Validation.isCooking(riceCooker) && (choice == 1)) {
         continue;
       }
       switch (choice) {
@@ -42,7 +42,7 @@ public class RiceCookerView {
           service.shutDown();
           return;
         default:
-          System.out.println(ExceptionManager.error400MsgIntegerInput(min,max));
+          System.out.println(ExceptionManager.error400MsgIntegerInput(min, max));
       }
     }
   }
@@ -56,8 +56,6 @@ public class RiceCookerView {
     System.out.println("4 - SHUT DOWN");
   }
 
-
-
   private void cookFoodMenu(RiceCooker riceCooker) {
     System.out.println();
     System.out.println("COOK FOOD MENU:");
@@ -67,7 +65,7 @@ public class RiceCookerView {
 
     int min = 1;
     int max = 3;
-    double choice = Validation.getValidNumberInput(InputUtils.menuPromptMsg(min,max),min,max);
+    double choice = Validation.getValidNumberInput(InputUtils.menuPromptMsg(min, max), min, max);
 
     switch ((int) choice) {
       case 1:
@@ -79,14 +77,8 @@ public class RiceCookerView {
       case 3:
         break;
       default:
-        System.out.println(ExceptionManager.error400MsgIntegerInput(min,max));
+        System.out.println(ExceptionManager.error400MsgIntegerInput(min, max));
     }
   }
-
-
-
-
-
-
 
 }
