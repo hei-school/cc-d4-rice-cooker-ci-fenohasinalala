@@ -40,3 +40,5 @@ build/
 .gradle/
 
 __pycache__/
+
+.vscode/
