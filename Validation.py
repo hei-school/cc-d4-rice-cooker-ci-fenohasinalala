@@ -5,12 +5,10 @@ from RiceCooker import RiceCooker
 class Validation:
     @staticmethod
     def is_cooking(rice_cooker):
-        if (
-            rice_cooker.cook is not None
-            and rice_cooker.status == RiceCooker.Status.COOKING
-        ):
-            print("Rice cooker still cooking ...")
-            return True
+        if rice_cooker.cook is not None:
+            if rice_cooker.status == RiceCooker.Status.COOKING:
+                print("Rice cooker still cooking ...")
+                return True
         return False
 
 
