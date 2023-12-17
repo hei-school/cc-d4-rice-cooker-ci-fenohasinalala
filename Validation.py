@@ -12,7 +12,7 @@ class Validation:
         return False
 
 
-def get_valid_number_input(prompt_msg, min_val=float("-inf"), max_val=float("inf")):
+def get_valid_number_input(prompt_msg, min_val, max_val):
     while True:
         try:
             user_input = float(input(prompt_msg))

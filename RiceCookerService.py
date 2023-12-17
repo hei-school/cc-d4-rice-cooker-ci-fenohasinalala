@@ -15,7 +15,6 @@ class RiceCookerService:
         water_cups = get_valid_number_input(
             water_cups_prompt, rice_cups, rice_cups + 0.5
         )
-        print("List of ingredients")
         confirmation = input("To proceed with cooking, please confirm (yes/no): ")
         if confirmation.lower() == "yes":
             rice_cooker.start_cooking(
