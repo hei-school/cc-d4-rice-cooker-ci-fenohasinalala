@@ -10,17 +10,18 @@ public class RiceCookerService {
   public void cookRice(RiceCooker riceCooker) {
     int min = 2;
     int max = 8;
-    String riceCupsPrompt = "Enter the number of rice cups you want to cook ("+min+" - "+max+"): ";
-    double riceCups = Validation.getValidNumberInput(riceCupsPrompt,min,max);
+    String riceCupsPrompt = "Enter the number of rice cups you want to cook (" + min + " - " + max + "): ";
+    double riceCups = Validation.getValidNumberInput(riceCupsPrompt, min, max);
     double minWater = riceCups;
-    double maxWater = riceCups+0.5;
-    String waterCupsPrompt = "Enter the number of water cups, for "+riceCups+" rice cups put "+minWater+" to "+maxWater+" cups of water: ";
-    double waterCups = Validation.getValidNumberInput(waterCupsPrompt,minWater,maxWater);
+    double maxWater = riceCups + 0.5;
+    String waterCupsPrompt = "Enter the number of water cups, for " + riceCups + " rice cups put " + minWater + " to "
+        + maxWater + " cups of water: ";
+    double waterCups = Validation.getValidNumberInput(waterCupsPrompt, minWater, maxWater);
 
     // Display confirmation message
     System.out.println("List of ingredients");
-    String ingredient1 = "Rice cups\t\tx "+riceCups;
-    String ingredient2 = "Water cups\t\tx "+waterCups;
+    String ingredient1 = "Rice cups\t\tx " + riceCups;
+    String ingredient2 = "Water cups\t\tx " + waterCups;
     System.out.println(ingredient1);
     System.out.println(ingredient2);
 
@@ -29,15 +30,14 @@ public class RiceCookerService {
 
     if ("yes".equalsIgnoreCase(confirmation)) {
       String recipeName = "Just Rice";
-      String description = ingredient1+"\n"+ingredient2;
+      String description = ingredient1 + "\n" + ingredient2;
       Integer duration = 15;
-      riceCooker.startCooking(recipeName,description,duration);
+      riceCooker.startCooking(recipeName, description, duration);
       System.out.println("Cooking started. Go to CHECK STATUS to check the remaining cooking time.");
     } else {
       System.out.println("Cooking canceled. Returning to MAIN MENU.");
     }
   }
-
 
   public void checkStatus(RiceCooker riceCooker) {
     riceCooker.showStatus();

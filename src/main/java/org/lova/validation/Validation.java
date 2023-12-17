@@ -9,14 +9,13 @@ import org.lova.model.RiceCooker.Status;
 
 public class Validation {
 
-  public static boolean isCooking(RiceCooker riceCooker){
-    if (riceCooker.getCook() !=null && riceCooker.getStatus() == Status.COOKING){
+  public static boolean isCooking(RiceCooker riceCooker) {
+    if (riceCooker.getCook() != null && riceCooker.getStatus() == Status.COOKING) {
       System.out.println("Rice cooker still cooking ...");
       return true;
     }
     return false;
   }
-
 
   public static double getValidNumberInput() {
     System.out.println(menuPromptMsg());
@@ -34,7 +33,7 @@ public class Validation {
       input = getValidNumberInput();
 
       if (input < min || input > max) {
-        System.out.println(ExceptionManager.error400MsgIntegerInput(min,max));
+        System.out.println(ExceptionManager.error400MsgIntegerInput(min, max));
       }
 
     } while (input < min || input > max);
