@@ -1,7 +1,6 @@
 from datetime import datetime, timedelta
-import uuid
-
 from Cook import Cook
+import uuid
 
 
 class RiceCooker:
