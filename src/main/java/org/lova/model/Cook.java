@@ -18,6 +18,10 @@ public class Cook {
     this.duration = duration;
   }
 
+  public String getId() {
+    return id;
+  }
+
   public Instant getDebut() {
     return debut;
   }
