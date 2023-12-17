@@ -62,6 +62,8 @@ class RiceCooker {
         console.log("Time remains:", timeRemaining, "MIN");
       } else if (this.status === RiceCooker.Status.WARMING) {
         console.log("Cooking done!");
+      } else {
+        console.log("No cooking has been done");
       }
     }
   }
