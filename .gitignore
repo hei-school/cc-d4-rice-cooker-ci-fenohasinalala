@@ -1,0 +1,42 @@
+# Node modules
+node_modules/
+
+# Compiled binary addons (for example, node-sass)
+build/Release/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Dependency d/lib-cov
+
+# TypeScript
+*.tsbuildinfo
+
+# Optional neslintcache
+
+# Microbundle
+dist/
+pm cache directory
+.npm
+
+# Optional eslint cache
+.irectories
+.jest
+.pnp
+.pnp.js
+
+# Testing
+/coverage
+
+.idea/
+
+build/
+
+.gradle/
+
+__pycache__/
