@@ -4,13 +4,29 @@
   "description": "## Description",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "app": "node ./src/index.js",
+    "test": "mocha ./src/test.js",
+    "lint": "eslint ./src/",
+    "format": "prettier --write ./src"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chai": "^4.3.10",
     "prompt-sync": "^4.2.0",
     "readline-sync": "^1.4.10",
     "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-mocha": "^10.2.0",
+    "eslint-plugin-n": "^16.4.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "mocha": "^10.2.0",
+    "prettier": "^3.1.1"
   }
 }
