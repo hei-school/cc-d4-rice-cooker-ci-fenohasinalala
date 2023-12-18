@@ -106,46 +106,46 @@ namespace RiceCookerApp
     }
 
     public class Validation
-{
-    public static bool IsCooking(RiceCooker riceCooker)
     {
-        if (riceCooker.CurrentCook != null && riceCooker.CookerStatus == RiceCooker.Status.COOKING)
+        public static bool IsCooking(RiceCooker riceCooker)
         {
-            Console.WriteLine("Rice cooker still cooking ...");
-            return true;
-        }
-        return false;
-    }
-
-    public static double GetValidNumberInput()
-    {
-        double result;
-        Console.WriteLine(InputUtils.MenuPromptMsg());
-        while (!double.TryParse(Console.ReadLine(), out result))
-        {
-            Console.WriteLine("400: Invalid input. Please enter a valid number.");
-        }
-        return result;
-    }
-
-    public static double GetValidNumberInputRange(string promptMsg, double min, double max)
-    {
-        double input;
-        Console.WriteLine(promptMsg);
-        do
-        {
-            input = GetValidNumberInput();
-
-            if (input < min || input > max)
+            if (riceCooker.CurrentCook != null && riceCooker.CookerStatus == RiceCooker.Status.COOKING)
             {
-                Console.WriteLine($"400: Input must be between {min} and {max}.");
+                Console.WriteLine("Rice cooker still cooking ...");
+                return true;
             }
+            return false;
+        }
 
-        } while (input < min || input > max);
+        public static double GetValidNumberInput()
+        {
+            double result;
+            Console.WriteLine(InputUtils.MenuPromptMsg());
+            while (!double.TryParse(Console.ReadLine(), out result))
+            {
+                Console.WriteLine("400: Invalid input. Please enter a valid number.");
+            }
+            return result;
+        }
 
-        return input;
+        public static double GetValidNumberInputRange(string promptMsg, double min, double max)
+        {
+            double input;
+            Console.WriteLine(promptMsg);
+            do
+            {
+                input = GetValidNumberInput();
+
+                if (input < min || input > max)
+                {
+                    Console.WriteLine($"400: Input must be between {min} and {max}.");
+                }
+
+            } while (input < min || input > max);
+
+            return input;
+        }
     }
-}
 
     public class RiceCookerService
     {
@@ -202,13 +202,12 @@ namespace RiceCookerApp
 
     public class RiceCookerView
     {
-    public RiceCookerService Service { get; private set; }
+        public RiceCookerService Service { get; private set; }
 
         public RiceCookerView(RiceCookerService service)
         {
             Service = service ?? throw new ArgumentNullException(nameof(service));
         }
-
         public void Run()
         {
             RiceCooker riceCooker = new RiceCooker();
@@ -218,7 +217,7 @@ namespace RiceCookerApp
                 DisplayMainMenu();
                 int min = 1;
                 int max = 4;
-                int choice = (int)Validation.GetValidNumberInputRange(InputUtils.MenuPromptMsg(min, max),min, max);
+                int choice = (int)Validation.GetValidNumberInputRange(InputUtils.MenuPromptMsg(min, max), min, max);
                 if (Validation.IsCooking(riceCooker) && (choice == 1))
                 {
                     continue;

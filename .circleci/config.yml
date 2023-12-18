@@ -18,7 +18,14 @@ jobs:
 
       - run:
           name: Install Microsoft.CodeAnalysis.NetAnalyzers Package
-          command: dotnet add package Microsoft.CodeAnalysis.NetAnalyzers
+          command:  |
+            cd $MAIN_APP
+            dotnet add package Microsoft.CodeAnalysis.NetAnalyzers
+      - run:
+          name: Install Microsoft.CodeAnalysis.NetAnalyzers Package
+          command:  |
+            cd $TEST_APP
+            dotnet add package Microsoft.CodeAnalysis.NetAnalyzers
 
       # Install dependencies
       - run:
