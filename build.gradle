@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'checkstyle'
+    id 'application'
 }
 
 group = 'org.lova'
@@ -32,4 +33,8 @@ task checkstyle(type: Checkstyle) {
     source 'src'
     include '**/*.java'
     exclude '**/gen/**'
+}
+
+application {
+    mainClassName = 'org.lova.Main'
 }
