@@ -17,25 +17,25 @@ jobs:
       - checkout
 
       - run:
-          name: Install Microsoft.CodeAnalysis.NetAnalyzers Package
+          name: Install Microsoft.CodeAnalysis.NetAnalyzers Package on MAIN_APP
           command:  |
             cd $MAIN_APP
             dotnet add package Microsoft.CodeAnalysis.NetAnalyzers
       - run:
-          name: Install Microsoft.CodeAnalysis.NetAnalyzers Package
+          name: Install Microsoft.CodeAnalysis.NetAnalyzers Package on TEST_APP
           command:  |
             cd $TEST_APP
             dotnet add package Microsoft.CodeAnalysis.NetAnalyzers
 
       # Install dependencies
       - run:
-          name: Restore Dependencies $MAIN_APP
+          name: Restore Dependencies MAIN_APP
           command: |
             cd $MAIN_APP
             dotnet restore
 
       - run:
-          name: Restore Dependencies $TEST_APP 
+          name: Restore Dependencies TEST_APP 
           command: |
             cd ./$TEST_APP/
             dotnet restore
