@@ -1,0 +1,39 @@
+version: 2.1
+
+jobs:
+  build:
+    docker:
+      - image: mcr.microsoft.com/dotnet/sdk:6.0
+
+    working_directory: /app
+
+    steps:
+      - checkout
+
+
+      # Install dependencies
+      - run:
+          name: Restore Dependencies AdditionApp
+          command: |
+            cd AdditionApp
+            dotnet restore
+      - run:
+          name: Restore Dependencies AdditionApp.Tests 
+          command: |
+            cd ./AdditionApp.Tests/
+            dotnet restore
+
+      # Build the main application
+      - run:
+          name: Build Main Application
+          command: dotnet build AdditionApp/AdditionApp.csproj
+
+      # Build the test project
+      - run:
+          name: Build Test Project
+          command: dotnet build AdditionApp.Tests/AdditionApp.Tests.csproj
+
+      # Run tests
+      - run:
+          name: Run Tests
+          command: dotnet test AdditionApp.Tests/AdditionApp.Tests.csproj
