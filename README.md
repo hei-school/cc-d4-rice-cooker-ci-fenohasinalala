@@ -1,4 +1,3 @@
-
 # RICE COOKER - CI
 
 ## Description
@@ -13,7 +12,7 @@ We can find the 4 implementations of the program in the different languages (Jav
 - Python in the branch [feature/python](https://github.com/hei-school/cc-d4-rice-cooker-ci-fenohasinalala/tree/feature/python).
 - Java in the branch [feature/java](https://github.com/hei-school/cc-d4-rice-cooker-ci-fenohasinalala/tree/feature/java).
 - JavaScript in the branch [feature/javascript](https://github.com/hei-school/cc-d4-rice-cooker-ci-fenohasinalala/tree/feature/javascript).
-- C++ in the branch [feature/cpp](https://github.com/hei-school/cc-d4-rice-cooker-ci-fenohasinalala/tree/feature/cpp).
+- C# in the branch [feature/csharp](https://github.com/hei-school/cc-d4-rice-cooker-ci-fenohasinalala/tree/feature/csharp).
 
 ## Requirement
 
@@ -27,7 +26,7 @@ Depending on the OS:
 
 [Download and install](https://nodejs.org/en/learn/getting-started/how-to-install-nodejs) (JavaScript) Nodejs 20
 
-[Download and install](https://cplusplus.com/doc/tutorial/introduction/) (C++) GCC & Clang
+[Download and install](https://www.mono-project.com/docs/about-mono/languages/csharp/) (C#) mono
 
 ## Usage
 
