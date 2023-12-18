@@ -1,0 +1,11 @@
+# .editorconfig
+
+# Set the root = true to stop searching for .editorconfig files in parent directories
+root = true
+
+# .NET coding conventions
+[*.cs]
+dotnet_code_quality.CA1001.api_surface = all
+dotnet_code_quality.CA1000.api_surface = all
+dotnet_code_quality.CA1050.api_surface = all
+# Add more rules as needed
