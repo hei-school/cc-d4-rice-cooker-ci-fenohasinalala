@@ -16,6 +16,10 @@ jobs:
     steps:
       - checkout
 
+      - run:
+          name: Install Microsoft.CodeAnalysis.NetAnalyzers Package
+          command: dotnet add package Microsoft.CodeAnalysis.NetAnalyzers
+
       # Install dependencies
       - run:
           name: Restore Dependencies $MAIN_APP
@@ -28,6 +32,11 @@ jobs:
           command: |
             cd ./$TEST_APP/
             dotnet restore
+
+      # Linting with Roslyn Analyzers
+      - run:
+          name: Run Roslyn Analyzers
+          command: dotnet build /p:WarningLevel=0 
 
       # Build the main application
       - run:
