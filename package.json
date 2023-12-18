@@ -4,7 +4,10 @@
   "description": "## Description",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "app": "node ./src/index.js",
+    "test": "mocha ./src/test.js",
+    "lint": "eslint ./src/",
+    "format": "prettier --write ./src"
   },
   "author": "",
   "license": "ISC",
@@ -12,5 +15,15 @@
     "prompt-sync": "^4.2.0",
     "readline-sync": "^1.4.10",
     "uuid": "^9.0.1"
+  },
+    "devDependencies": {
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-mocha": "^10.2.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "mocha": "^10.2.0",
+    "chai": "^4.3.10",
+    "prettier": "^3.1.1"
   }
+
 }
