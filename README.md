@@ -26,7 +26,7 @@ Depending on the OS:
 
 [Download and install](https://nodejs.org/en/learn/getting-started/how-to-install-nodejs) (JavaScript) Nodejs 20
 
-[Download and install](https://www.mono-project.com/docs/about-mono/languages/csharp/) (C#) mono
+[Download and install](https://www.mono-project.com/docs/about-mono/languages/csharp/) (C#) dotnet 6
 
 ## Usage
 
