@@ -61,7 +61,6 @@ namespace RiceCookerApp
 
                 if (endDateTime < DateTime.Now)
                 {
-                    CurrentCook = null;
                     CookerStatus = Status.WARMING;
                 }
             }
