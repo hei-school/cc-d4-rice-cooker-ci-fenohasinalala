@@ -351,3 +351,5 @@ __pycache__/
 .vscode/
 
 bin/
+
+node_modules/

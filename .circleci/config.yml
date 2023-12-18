@@ -1,0 +1,61 @@
+version: 2.1
+
+jobs:
+  build:
+    docker:
+      - image: mcr.microsoft.com/dotnet/sdk:6.0
+
+    working_directory: /app
+
+    environment:
+      MAIN_APP: RiceCookerApp
+      MAIN_APP_CS_PROJ: RiceCookerApp.csproj
+      TEST_APP: RiceCookerApp.Tests
+      TEST_APP_CS_PROJ: RiceCookerApp.Tests.csproj
+
+    steps:
+      - checkout
+
+      - run:
+          name: Install Microsoft.CodeAnalysis.NetAnalyzers Package on MAIN_APP
+          command:  |
+            cd $MAIN_APP
+            dotnet add package Microsoft.CodeAnalysis.NetAnalyzers
+      - run:
+          name: Install Microsoft.CodeAnalysis.NetAnalyzers Package on TEST_APP
+          command:  |
+            cd $TEST_APP
+            dotnet add package Microsoft.CodeAnalysis.NetAnalyzers
+
+      # Install dependencies
+      - run:
+          name: Restore Dependencies MAIN_APP
+          command: |
+            cd $MAIN_APP
+            dotnet restore
+
+      - run:
+          name: Restore Dependencies TEST_APP 
+          command: |
+            cd ./$TEST_APP/
+            dotnet restore
+
+      # Linting with Roslyn Analyzers
+      - run:
+          name: Run Roslyn Analyzers
+          command: dotnet build /p:WarningLevel=0 
+
+      # Build the main application
+      - run:
+          name: Build Main Application
+          command: dotnet build $MAIN_APP/$MAIN_APP_CS_PROJ
+
+      # Build the test project
+      - run:
+          name: Build Test Project
+          command: dotnet build $TEST_APP/$TEST_APP_CS_PROJ
+
+      # Run tests
+      - run:
+          name: Run Tests
+          command: dotnet test $TEST_APP/$TEST_APP_CS_PROJ
