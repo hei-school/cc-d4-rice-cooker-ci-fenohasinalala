@@ -26,7 +26,7 @@ Depending on the OS:
 
 [Download and install](https://nodejs.org/en/learn/getting-started/how-to-install-nodejs) (JavaScript) Nodejs 20
 
-[Download and install](https://www.mono-project.com/docs/about-mono/languages/csharp/) (C#) dotnet 6
+[Download and install](https://dotnet.microsoft.com/en-us/download) (C#) dotnet 6
 
 ## Usage
 
@@ -36,8 +36,16 @@ Example:
 
 ```bash
 #for Python
-  python main.py
+python main.py
 ```
+
+## Continuous Integration (CI)
+
+CircleCi is used for continuous integration in this project, the CI pipeline is configured with the config file in the folder ".circleci".
+
+To use the continuous integration, you need to create an account on the CircleCi website, create a project, link the project with the Git repository by SSH, and configure the workflow with the config file in .circleci.
+
+![Alt text](relative%20path/img/../../img/circle_ci.jpg?raw=true "CircleCi")
 
 ## Features
 
