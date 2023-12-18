@@ -1,7 +1,6 @@
-const { v4: uuidv4 } = require('uuid');
+const { v4: uuidv4 } = require("uuid");
 
-const prompt = require("prompt-sync")({sigint:true});
-
+const prompt = require("prompt-sync")({ sigint: true });
 
 class Cook {
   constructor(recipeName, description, duration) {
@@ -17,7 +16,7 @@ class RiceCooker {
   static Status = {
     OFF: "OFF",
     COOKING: "COOKING",
-    WARMING: "WARMING"
+    WARMING: "WARMING",
   };
 
   constructor() {
@@ -38,7 +37,9 @@ class RiceCooker {
 
   updateStatus() {
     if (this.cook !== null) {
-      const endDateTime = new Date(this.cook.debut.getTime() + this.cook.duration * 60 * 1000);
+      const endDateTime = new Date(
+        this.cook.debut.getTime() + this.cook.duration * 60 * 1000,
+      );
 
       if (endDateTime < new Date()) {
         this.status = RiceCooker.Status.WARMING;
@@ -56,7 +57,10 @@ class RiceCooker {
       console.log("No cooking has been done");
     } else {
       if (this.status === RiceCooker.Status.COOKING) {
-        const endDatetime = this.getEndDatetime(this.cook.debut, this.cook.duration)
+        const endDatetime = this.getEndDatetime(
+          this.cook.debut,
+          this.cook.duration,
+        );
         const timeRemaining = Math.floor((endDatetime - now) / (60 * 1000));
         console.log("Recipe:", this.cook.recipeName);
         console.log("Time remains:", timeRemaining, "MIN");
@@ -86,18 +90,27 @@ class InputUtils {
 
 class Validation {
   static isCooking(riceCooker) {
-    if (riceCooker.cook !== null && riceCooker.status === RiceCooker.Status.COOKING) {
+    if (
+      riceCooker.cook !== null &&
+      riceCooker.status === RiceCooker.Status.COOKING
+    ) {
       console.log("Rice cooker still cooking ...");
       return true;
     }
     return false;
   }
 
+  static isValidNumber(input) {
+    const floatRegex = /^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?$/;
+    return floatRegex.test(input);
+  }
+
   static getValidNumberInput() {
     console.log(InputUtils.menuPromptMsg());
-    const value = prompt()
-    while (isNaN(parseFloat(value)) || !isFinite(value)) {
+    let value = prompt();
+    while (!this.isValidNumber(value)) {
       console.log("400: Invalid input. Please enter a valid number.");
+      value = prompt();
     }
     return parseFloat(value);
   }
@@ -145,7 +158,9 @@ class RiceCookerService {
       const description = `${ingredient1}\n${ingredient2}`;
       const duration = 15;
       riceCooker.startCooking(recipeName, description, duration);
-      console.log("Cooking started. Go to CHECK STATUS to check the remaining cooking time.");
+      console.log(
+        "Cooking started. Go to CHECK STATUS to check the remaining cooking time.",
+      );
     } else {
       console.log("Cooking canceled. Returning to MAIN MENU.");
     }
@@ -169,12 +184,13 @@ class RiceCookerView {
 
   constructor(service) {
     this.service = service;
-    RiceCookerView.scanner = require('readline-sync');
+    RiceCookerView.scanner = require("readline-sync");
   }
 
   run() {
     const riceCooker = new RiceCooker();
 
+    // eslint-disable-next-line no-constant-condition
     while (true) {
       this.displayMainMenu();
       const min = 1;
@@ -198,7 +214,7 @@ class RiceCookerView {
           this.service.shutDown();
           return;
         default:
-          console.log(ExceptionManager.error400MsgIntegerInput(min, max));
+          console.log(ExceptionManager.error400MsgIntegerInputRange(min, max));
       }
     }
   }
@@ -237,13 +253,13 @@ class RiceCookerView {
       case 3:
         break;
       default:
-        console.log(ExceptionManager.error400MsgIntegerInput(min, max));
+        console.log(ExceptionManager.error400MsgIntegerInputRange(min, max));
     }
   }
 }
 
 class ExceptionManager {
-  static error400MsgIntegerInput(min, max) {
+  static error400MsgIntegerInputRange(min, max) {
     return `400: Invalid choice. Please enter a valid option (${min} - ${max})`;
   }
 
