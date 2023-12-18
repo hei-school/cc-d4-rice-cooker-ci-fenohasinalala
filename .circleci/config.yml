@@ -48,7 +48,3 @@ jobs:
       - run:
           name: Checkstyle
           command: ./gradlew checkstyleMain checkstyleTest
-workflows:
-  ci: 
-    jobs:
-      - build-and-test
