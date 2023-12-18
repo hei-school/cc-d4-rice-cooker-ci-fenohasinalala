@@ -7,7 +7,7 @@ This rice cooker application is designed for terminal use (CLI). It simulates th
 The aim is to provide a tested application with unit tests and coding standards verification (lint) in continuous integration (CI) with CicleCi.
 <br>
 <br>
-We can find the 4 implementations of the program in the different languages (Java, JavaScript, C# and Python) by browsing the branch corresponding to each language.
+We can find the 4 implementations of the program in the different languages (Java, JavaScript, C#, and Python) by browsing the branch corresponding to each language.
 
 - Python in the branch [feature/python](https://github.com/hei-school/cc-d4-rice-cooker-ci-fenohasinalala/tree/feature/python).
 - Java in the branch [feature/java](https://github.com/hei-school/cc-d4-rice-cooker-ci-fenohasinalala/tree/feature/java).
@@ -22,22 +22,47 @@ Depending on the OS:
 
 [Download and install](https://www.python.org/downloads/) Python 3.10 or higher
 
-[Download and install](https://docs.oracle.com/en/java/javase/17/install/overview-jdk-installation.html)  (Java) JDK 17
-
-[Download and install](https://nodejs.org/en/learn/getting-started/how-to-install-nodejs) (JavaScript) Nodejs 20
-
-[Download and install](https://www.mono-project.com/docs/about-mono/languages/csharp/) (C#) mono
-
 ## Usage
 
-Depends on the selected language,
+```bash
+#install dependencies
+pip install -r requirements.txt
 
-Example:
+# To run the application
+python Main.py
+```
+
+## Linter and formatter
+
+### Coding standard
+
+The coding standard used is PEP8
+
+### Linter
+
+The Linter used is Ruff
+
+Launch with the following command:
 
 ```bash
-#for Python
-  python main.py
+ruff check .
 ```
+
+The configuration is done with the file "pyproject.toml"
+
+### Formatter
+
+ruff is also a formatter:
+
+```bash
+ruff check . --fix
+```
+
+## Continuous Integration (CI)
+
+CircleCi is used for continuous integration in this project, the CI pipeline is configured with the config file in the folder ".circleci".
+
+To use the continuous integration, you need to create an account on CircleCi website, create a project, link the project with Git repository by SSH, and configure the workflow with the [config file](https://raw.githubusercontent.com/fenohasinalala/cc-d4-rice-cooker-ci-fenohasinalala/feature/python/.circleci/config.yml) in [.circleci](https://github.com/fenohasinalala/cc-d4-rice-cooker-ci-fenohasinalala/tree/feature/python/.circleci).
 
 ## Features
 
