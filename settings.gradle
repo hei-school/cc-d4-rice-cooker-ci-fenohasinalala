@@ -1,2 +1,3 @@
 rootProject.name = 'rice-cooker'
 
+include 'rice-cooker'

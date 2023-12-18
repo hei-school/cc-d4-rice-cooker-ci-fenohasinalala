@@ -10,12 +10,19 @@ public class RiceCookerService {
   public void cookRice(RiceCooker riceCooker) {
     int min = 2;
     int max = 8;
-    String riceCupsPrompt = "Enter the number of rice cups you want to cook (" + min + " - " + max + "): ";
+    String riceCupsPrompt =
+        "Enter the number of rice cups you want to cook (" + min + " - " + max + "): ";
     double riceCups = Validation.getValidNumberInput(riceCupsPrompt, min, max);
     double minWater = riceCups;
     double maxWater = riceCups + 0.5;
-    String waterCupsPrompt = "Enter the number of water cups, for " + riceCups + " rice cups put " + minWater + " to "
-        + maxWater + " cups of water: ";
+    String waterCupsPrompt =
+        "Enter the number of water cups, for "
+            + riceCups
+            + " rice cups put "
+            + minWater
+            + " to "
+            + maxWater
+            + " cups of water: ";
     double waterCups = Validation.getValidNumberInput(waterCupsPrompt, minWater, maxWater);
 
     // Display confirmation message
@@ -33,7 +40,8 @@ public class RiceCookerService {
       String description = ingredient1 + "\n" + ingredient2;
       Integer duration = 15;
       riceCooker.startCooking(recipeName, description, duration);
-      System.out.println("Cooking started. Go to CHECK STATUS to check the remaining cooking time.");
+      System.out.println(
+          "Cooking started. Go to CHECK STATUS to check the remaining cooking time.");
     } else {
       System.out.println("Cooking canceled. Returning to MAIN MENU.");
     }

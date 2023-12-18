@@ -8,5 +8,4 @@ public class InputUtils {
   public static String menuPromptMsg(double min, double max) {
     return "Select value between " + min + " - " + max;
   }
-
 }

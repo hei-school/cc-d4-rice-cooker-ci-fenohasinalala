@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'checkstyle'
+    id 'application'
 }
 
 group = 'org.lova'
@@ -11,15 +12,29 @@ repositories {
 }
 
 dependencies {
-    testImplementation platform('org.junit:junit-bom:5.9.1')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
+    implementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.12'
+    checkstyle 'com.puppycrawl.tools:checkstyle:10.11.0'
 }
-
 
 checkstyle {
-    toolVersion = '10.12.6'
+    toolVersion = "10.11.0"
 }
 
-test {
-    useJUnitPlatform()
+
+tasks.withType(Checkstyle) {
+    configFile = file("${rootDir}/google_checks.xml")
+}
+
+
+
+task checkstyle(type: Checkstyle) {
+    dependsOn assemble
+    source 'src'
+    include '**/*.java'
+    exclude '**/gen/**'
+}
+
+application {
+    mainClassName = 'org.lova.Main'
 }

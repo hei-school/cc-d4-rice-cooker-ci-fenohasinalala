@@ -24,7 +24,8 @@ public class RiceCookerView {
       displayMainMenu();
       int min = 1;
       int max = 4;
-      int choice = (int) Validation.getValidNumberInput(InputUtils.menuPromptMsg(min, max), min, max);
+      int choice =
+          (int) Validation.getValidNumberInput(InputUtils.menuPromptMsg(min, max), min, max);
       if (Validation.isCooking(riceCooker) && (choice == 1)) {
         continue;
       }
@@ -80,5 +81,4 @@ public class RiceCookerView {
         System.out.println(ExceptionManager.error400MsgIntegerInput(min, max));
     }
   }
-
 }
