@@ -24,12 +24,8 @@ Depending on the OS:
 
 ## Usage
 
-Depends on the selected language,
-
-Example:
-
 ```bash
-#for C#
+#for C#, to run
 dotnet run --project RiceCookerApp  
 ```
 
