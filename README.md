@@ -20,13 +20,7 @@ We can find the 4 implementations of the program in the different languages (Jav
 
 Depending on the OS:
 
-[Download and install](https://www.python.org/downloads/) Python 3.10 or higher
-
-[Download and install](https://docs.oracle.com/en/java/javase/17/install/overview-jdk-installation.html)  (Java) JDK 17
-
-[Download and install](https://nodejs.org/en/learn/getting-started/how-to-install-nodejs) (JavaScript) Nodejs 20
-
-[Download and install](https://www.mono-project.com/docs/about-mono/languages/csharp/) (C#) dotnet 6
+[Download and install](https://dotnet.microsoft.com/en-us/download) (C#) dotnet 6
 
 ## Usage
 
@@ -35,9 +29,44 @@ Depends on the selected language,
 Example:
 
 ```bash
-#for Python
-  python main.py
+#for C#
+dotnet run --project RiceCookerApp  
 ```
+
+## Linter and formatter
+
+### Coding standard
+
+The coding standard used is Microsoft's C# Coding Conventions
+
+### Linter
+
+The Linter used is Roslyn Analyzers
+
+To enable it, on the project root directory, install the package with the following command:
+
+```bash
+dotnet add package Microsoft.CodeAnalysis.NetAnalyzers
+```
+
+The configuration is done with the file ".editorconfig"
+
+### Formatter
+
+The formatter used is integrated with the dotnet default tools, used with the command line:
+
+```bash
+dotnet format
+```
+
+## Continuous Integration (CI)
+
+CircleCi is used for continuous integration in this project, the CI pipeline is configured with the config file in the folder ".circleci".
+
+To use the continuous integration, you need to create an account on circleCi website , create a project, link the project with Git repository by SSH and configure the workflow with the [config file](https://raw.githubusercontent.com/fenohasinalala/cc-d4-rice-cooker-ci-fenohasinalala/feature/csharp/.circleci/config.yml) in [.circleci](https://github.com/fenohasinalala/cc-d4-rice-cooker-ci-fenohasinalala/tree/feature/csharp/.circleci).
+
+
+
 
 ## Features
 
