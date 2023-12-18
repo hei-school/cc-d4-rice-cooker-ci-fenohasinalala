@@ -36,7 +36,7 @@ Example:
 
 ```bash
 #for Python
-  python main.py
+python main.py
 ```
 
 ## Continuous Integration (CI)
