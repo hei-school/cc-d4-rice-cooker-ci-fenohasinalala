@@ -7,33 +7,39 @@ jobs:
 
     working_directory: /app
 
+    environment:
+      MAIN_APP: RiceCookerApp
+      MAIN_APP_CS_PROJ: RiceCookerApp.csproj
+      TEST_APP: RiceCookerApp.Tests
+      TEST_APP_CS_PROJ: RiceCookerApp.Tests.csproj
+
     steps:
       - checkout
 
-
       # Install dependencies
       - run:
-          name: Restore Dependencies AdditionApp
+          name: Restore Dependencies $MAIN_APP
           command: |
-            cd AdditionApp
+            cd $MAIN_APP
             dotnet restore
+
       - run:
-          name: Restore Dependencies AdditionApp.Tests 
+          name: Restore Dependencies $TEST_APP 
           command: |
-            cd ./AdditionApp.Tests/
+            cd ./$TEST_APP/
             dotnet restore
 
       # Build the main application
       - run:
           name: Build Main Application
-          command: dotnet build AdditionApp/AdditionApp.csproj
+          command: dotnet build $MAIN_APP/$MAIN_APP_CS_PROJ
 
       # Build the test project
       - run:
           name: Build Test Project
-          command: dotnet build AdditionApp.Tests/AdditionApp.Tests.csproj
+          command: dotnet build $TEST_APP/$TEST_APP_CS_PROJ
 
       # Run tests
       - run:
           name: Run Tests
-          command: dotnet test AdditionApp.Tests/AdditionApp.Tests.csproj
+          command: dotnet test $TEST_APP/$TEST_APP_CS_PROJ
