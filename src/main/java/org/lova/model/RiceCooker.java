@@ -45,8 +45,11 @@ public class RiceCooker {
     } else {
       if (status == Status.COOKING) {
         System.out.println("Recipe: " + cook.getRecipeName());
-        System.out.println("Time remains: " + -getEndDatetime(cook.getDebut(), cook.getDuration()).until(now,
-            ChronoUnit.MINUTES) + " MIN");
+        System.out.println(
+            "Time remains: "
+                + -getEndDatetime(cook.getDebut(), cook.getDuration())
+                    .until(now, ChronoUnit.MINUTES)
+                + " MIN");
       } else if (status == Status.WARMING) {
         System.out.println("Cooking done!");
       }
@@ -59,7 +62,9 @@ public class RiceCooker {
   }
 
   public static enum Status {
-    OFF, COOKING, WARMING
+    OFF,
+    COOKING,
+    WARMING
   }
 
   public String getId() {
