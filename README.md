@@ -7,7 +7,7 @@ This rice cooker application is designed for terminal use (CLI). It simulates th
 The aim is to provide a tested application with unit tests and coding standards verification (lint) in continuous integration (CI) with CicleCi.
 <br>
 <br>
-We can find the 4 implementations of the program in the different languages (Java, JavaScript, C++ and Python) by browsing the branch corresponding to each language.
+We can find the 4 implementations of the program in the different languages (Java, JavaScript, C# and Python) by browsing the branch corresponding to each language.
 
 - Python in the branch [feature/python](https://github.com/hei-school/cc-d4-rice-cooker-ci-fenohasinalala/tree/feature/python).
 - Java in the branch [feature/java](https://github.com/hei-school/cc-d4-rice-cooker-ci-fenohasinalala/tree/feature/java).
